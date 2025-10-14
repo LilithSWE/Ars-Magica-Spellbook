@@ -1,5 +1,4 @@
 import { lazy, Suspense } from "react";
-import "./App.css";
 import { Route, HashRouter, Routes } from "react-router-dom";
 
 // Lazy-loaded components with original import paths

@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import supabaseClient from "../services/supabaseClient";
+import type { Spell } from "../types/spell";
 
 export function Home() {
-  const [spells, setSpells] = useState<any[]>([]);
+  const [spells, setSpells] = useState<Spell[]>([]);
 
   useEffect(() => {
     const fetchSpells = async () => {
