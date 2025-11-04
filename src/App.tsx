@@ -1,5 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Route, HashRouter, Routes } from "react-router-dom";
+import { Header } from "./components/generic/Header";
+import { Footer } from "./components/generic/Footer";
 
 // Lazy-loaded components with original import paths
 const Home = lazy(() =>
@@ -23,15 +25,24 @@ if (theme == "dark") {
 function App() {
   return (
     <>
-      <HashRouter>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/guest" element={<Guest />} />
-          </Routes>
-        </Suspense>
-      </HashRouter>
+      <Header />
+      <main
+        style={{
+          marginTop: "7rem",
+          padding: "0 2rem",
+        }}
+      >
+        <HashRouter>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/guest" element={<Guest />} />
+            </Routes>
+          </Suspense>
+        </HashRouter>
+      </main>
+      <Footer />
     </>
   );
 }

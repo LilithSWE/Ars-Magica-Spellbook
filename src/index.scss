@@ -1,10 +1,18 @@
-@import "./style/_normalize";
-@import "./style/_containers";
-@import "./style/_text";
-@import "./style/_color";
+@import "./style/normalize";
+@import "./style/text";
+@import "./style/color";
+@import "./style/mobile";
+
+@media only screen and (min-width: 800px) {
+  @import "./style/tablet";
+}
+@media only screen and (min-width: 1025px) {
+  @import "./style/desktop";
+}
 
 :root {
-  font-family: system-ui, Helvetica, Arial, sans-serif;
+  font-family: "Texturina", "Merriweather", system-ui, Helvetica, Arial,
+    sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -14,17 +22,6 @@
   -moz-osx-font-smoothing: grayscale;
 
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-body {
-  margin: 0 auto;
-  padding: 2rem;
-  display: flex;
-  place-items: center;
-  text-align: center;
-  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
 }

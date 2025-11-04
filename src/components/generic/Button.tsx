@@ -8,7 +8,6 @@ type ButtonProps = {
   children: JSX.Element;
   onClick: () => void;
   bgColor: colorKeys;
-  borderColor?: colorKeys;
   height?: "2rem" | "2.5rem" | "3rem";
   width?: "8rem" | "10rem" | "12rem" | "14rem";
 };
@@ -17,7 +16,6 @@ export const Button = ({
   children,
   onClick,
   bgColor,
-  borderColor = "transparent",
   height = "2.5rem",
   width = "10rem",
 }: ButtonProps) => {
@@ -39,12 +37,15 @@ export const Button = ({
       style={{
         height: height,
         backgroundColor: colorNameToHex(bgColor),
-        border: `1px solid ${
-          isActive ? "black" : borderColor && colorNameToHex(borderColor)
-        }`,
+        border: "3px solid transparent",
+        borderImage: isHovered
+          ? "linear-gradient(to bottom, #FFD700, #DAA520) 1"
+          : isActive
+          ? "linear-gradient(to right, #FFD700, #DAA520) 1"
+          : "linear-gradient(to left, #FFD700, #DAA520) 1",
+
         color: textColor,
         fontWeight: isActive || isHovered ? "bold" : "normal",
-        borderRadius: "5px",
         width: width,
         padding: "0 1.5rem",
         display: "flex",

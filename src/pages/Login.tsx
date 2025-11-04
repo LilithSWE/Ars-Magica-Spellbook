@@ -1,11 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "../components/generic/Button";
-import { ButtonContainer } from "../components/generic/ButtonContainer";
-import { useScreenSize } from "../hooks/useScreenSize";
 
 export const Login = () => {
-  const { screenSize } = useScreenSize();
-
   const navigate = useNavigate();
 
   const handlePasswordPopup = () => {
@@ -20,9 +16,7 @@ export const Login = () => {
         Why, hello there!
         <br></br> And who might you be?
       </p>
-      <ButtonContainer
-        flexDirection={screenSize() === "mobile" ? "column" : "row"}
-      >
+      <div className="buttonContainer">
         <Button onClick={handlePasswordPopup} bgColor="primary">
           <>Amanda</>
         </Button>
@@ -32,7 +26,7 @@ export const Login = () => {
         <Button onClick={() => navigate("/guest")} bgColor="tertiary">
           <>Guest</>
         </Button>
-      </ButtonContainer>
+      </div>
     </section>
   );
 };
